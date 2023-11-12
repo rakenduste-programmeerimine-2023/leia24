@@ -9,7 +9,7 @@ import NextLogo from '@/components/NextLogo'
 import AddNumbers from '@/components/AddNumbers'
 import GetClassified from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
-
+import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 
 export default async function Index() {
 
@@ -21,7 +21,12 @@ export default async function Index() {
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <NextLogo></NextLogo>
       <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
-
+      <hr></hr>
+      <GetClassifiedsFromSoov></GetClassifiedsFromSoov>
+      
     </div>
   )
 }
+
+
+//  <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
