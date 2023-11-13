@@ -8,15 +8,16 @@ const GetClassifiedsFromOkidoki = async () => {
     const document = dom.window.document;
 
     const links = document.querySelectorAll('.horiz-offer-card__title-link');
-
+    
     const hrefs = Array.from(links).map(link => {
         const relativeHref = link.getAttribute('href');
-        return `https://www.okidoki.ee${relativeHref}`;
+        const relativeTitle = link.getAttribute('title');
+        return `${relativeTitle}, https://www.okidoki.ee${relativeHref}; \n\n`;
     });
 
     console.log({ hrefs });
-    return hrefs;
+    return hrefs
 }
-
+//
 
 export default GetClassifiedsFromOkidoki
