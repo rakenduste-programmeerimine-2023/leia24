@@ -17,7 +17,6 @@ export default async function Index() {
 
   return (
     <div>
-      <NextLogo></NextLogo>
       <ResponsiveAppBar/>
       <h1>Siin on avaleht</h1><br/>
       <ul>

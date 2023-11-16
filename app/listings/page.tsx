@@ -31,11 +31,15 @@ export default async function Index() {
   };
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <NextLogo></NextLogo>
+    <div>
+      <ResponsiveAppBar/>
       <h1>Siin on kuulutused</h1><br/>
       <ul>
-      <Link href="..">Avalehele</Link>
+       <li><Link href="..">Avalehele</Link></li>
+      </ul>
+      
+      <ul>
+       <li><GetClassifiedsBySearchFromOkidoki /></li>
       </ul>
       
       
