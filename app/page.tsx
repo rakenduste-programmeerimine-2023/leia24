@@ -10,6 +10,7 @@ import AddNumbers from '@/components/AddNumbers'
 import GetClassified from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
+import GetUsersData from '@/components/GetUsersData'
 
 export default async function Index() {
 
@@ -23,6 +24,8 @@ export default async function Index() {
       <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
       <hr></hr>
       <GetClassifiedsFromSoov></GetClassifiedsFromSoov>
+      <hr></hr>
+      <GetUsersData></GetUsersData>
       
     </div>
   )
