@@ -10,19 +10,16 @@ import AddNumbers from '@/components/AddNumbers'
 import GetClassified from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
+import Link from 'next/link'
 
 export default async function Index() {
-
-  const getClassifieds = async () => {
-    fetch('https://localhost:3000/api/getClassifieds')
-  }
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <NextLogo></NextLogo>
-      <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
-      <hr></hr>
-      <GetClassifiedsFromSoov></GetClassifiedsFromSoov>
+      <h1>Siin on avaleht</h1><br/>
+      <Link href="/listings">Kuulutustele</Link>
+
       
     </div>
   )
@@ -30,3 +27,4 @@ export default async function Index() {
 
 
 //  <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
+//  <a href='/listings'>Kuulutused hrefiga</a>

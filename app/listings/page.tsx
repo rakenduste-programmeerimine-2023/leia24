@@ -14,6 +14,8 @@ import GetClassifiedsBySearchFromOkidoki from '@/components/GetClassifiedsBySear
 import GetClassifiedsBySearchFromSoov from '@/components/GetClassifiedsBySearchFromSoov'
 import BoxBasic from '@/components/BoxBasic'
 import TestComponent from '@/components/TestComponent'
+import ResponsiveAppBar from '@/components/ResponsiveAppBar'
+import Link from 'next/link'
 
 export default async function Index() {
 
@@ -31,11 +33,10 @@ export default async function Index() {
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <NextLogo></NextLogo>
-      This page is for listings<br></br>
-      <GetClassifiedsBySearchFromOkidoki />
-      <GetClassifiedsBySearchFromOkidoki></GetClassifiedsBySearchFromOkidoki>
-      <hr />
-      <GetClassifiedsBySearchFromSoov></GetClassifiedsBySearchFromSoov>
+      <h1>Siin on kuulutused</h1><br/>
+      <ul>
+      <Link href="..">Avalehele</Link>
+      </ul>
       
       
     </div>
