@@ -1,7 +1,8 @@
+// GetUsersData.tsx
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 
-export default async function Page() {
+const GetUsersData = async () => {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
@@ -14,4 +15,6 @@ export default async function Page() {
   }
 
   return <pre>{JSON.stringify(usersData, null, 2)}</pre>;
-}
+};
+
+export default GetUsersData;
