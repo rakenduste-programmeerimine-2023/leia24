@@ -11,14 +11,20 @@ import GetClassified from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 import Link from 'next/link'
+import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 
 export default async function Index() {
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
+    <div>
       <NextLogo></NextLogo>
+      <ResponsiveAppBar/>
       <h1>Siin on avaleht</h1><br/>
-      <Link href="/listings">Kuulutustele</Link>
+      <ul>
+        <li><Link href="/listings">Kuulutustele</Link></li>
+        <li><Link href="/listings">Kuulutustele</Link></li>
+        <li><Link href="/listings">Kuulutustele</Link></li>
+      </ul>
 
       
     </div>
