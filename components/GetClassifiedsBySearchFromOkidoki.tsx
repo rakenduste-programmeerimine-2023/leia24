@@ -1,10 +1,13 @@
 import { JSDOM } from "jsdom";
+import { Input } from "postcss";
 
-const GetClassifiedsBySearchFromOkidoki = async (search) => {
+let hrefs2 = ["Saab", "Volvo"];
+const search = "xbox"
+
+const GetClassifiedsBySearchFromOkidoki = async () => {
   const res = await fetch(
     `https://www.okidoki.ee/buy/all/?query=${search}&c=0`
   );
-  console.log({ search });
   const html = await res.text();
 
   const dom = new JSDOM(html);
@@ -15,11 +18,15 @@ const GetClassifiedsBySearchFromOkidoki = async (search) => {
   const hrefs = Array.from(links).map((link) => {
     const relativeHref = link.getAttribute("href");
     const relativeTitle = link.getAttribute("title");
-    return `${relativeTitle}, https://www.okidoki.ee${relativeHref}; `;
+    return `https://www.okidoki.ee${relativeHref}; `;
   });
 
+
   console.log({ hrefs });
+
   return hrefs;
+  
 };
+//
 
 export default GetClassifiedsBySearchFromOkidoki;
