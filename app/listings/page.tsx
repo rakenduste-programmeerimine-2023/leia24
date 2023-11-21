@@ -1,3 +1,20 @@
+
+import { useState } from "react";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+
 import DeployButton from '../components/DeployButton'
 import AuthButton from '../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
@@ -19,16 +36,7 @@ import Link from 'next/link'
 
 export default async function Index() {
 
-  const HomePage = () => {
-    const myArray = [1, 2, 3, 4, 5];
   
-    return (
-      <div>
-        <h1>My Next.js Page</h1>
-        <TestComponent myArray={myArray} />
-      </div>
-    );
-  };
 
   return (
     <div>
@@ -38,10 +46,7 @@ export default async function Index() {
       <ul>
        <li><Link href="..">Avalehele</Link></li>
       </ul>
-      
-      <ul>
-       <li><GetClassifiedsBySearchFromOkidoki /></li>
-      </ul>
+      <TestComponent/>
       
       
     </div>

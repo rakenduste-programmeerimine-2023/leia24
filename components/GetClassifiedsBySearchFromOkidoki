@@ -1,6 +1,8 @@
 import { JSDOM } from "jsdom";
 
-const GetClassifiedsBySearchFromOkidoki = async (search) => {
+const GetClassifiedsBySearchFromOkidoki = async () => {
+  //console.log(search);
+  const search = "xbox";
   const res = await fetch(
     `https://www.okidoki.ee/buy/all/?query=${search}&c=0`
   );
@@ -18,7 +20,9 @@ const GetClassifiedsBySearchFromOkidoki = async (search) => {
     return `${relativeTitle}, https://www.okidoki.ee${relativeHref}; `;
   });
 
-  console.log({ hrefs });
+  //console.log({ hrefs });
+  console.log(typeof hrefs);
+  console.log(hrefs[0]);
   return hrefs;
 };
 
