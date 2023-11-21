@@ -1,8 +1,13 @@
 import { JSDOM } from "jsdom";
 
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import MenuItem from "@mui/material/MenuItem";
+
+// const GetClassifiedsBySearchFromOkidoki = async (search) => {
+const search = "playstation 3";
 const GetClassifiedsBySearchFromOkidoki = async () => {
-  //console.log(search);
-  const search = "xbox";
+  console.log(search);
   const res = await fetch(
     `https://www.okidoki.ee/buy/all/?query=${search}&c=0`
   );
@@ -20,10 +25,20 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
     return `${relativeTitle}, https://www.okidoki.ee${relativeHref}; `;
   });
 
-  //console.log({ hrefs });
-  console.log(typeof hrefs);
-  console.log(hrefs[0]);
-  return hrefs;
+  console.log({ hrefs });
+  const myArray = ["esimene", "teine"];
+
+  return (
+    <div>
+      <ul>
+        {hrefs.map((page) => (
+          <MenuItem key={page} onClick={console.log("click")}>
+            <Typography textAlign="center">{page}</Typography>
+          </MenuItem>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default GetClassifiedsBySearchFromOkidoki;

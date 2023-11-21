@@ -1,6 +1,6 @@
 import { JSDOM } from "jsdom";
 
-const search = "xbox";
+const search = "playstation";
 
 const GetClassifiedsBySearchFromSoov = async () => {
   const res = await fetch(`https://soov.ee/keyword-${search}/listings.html`);
