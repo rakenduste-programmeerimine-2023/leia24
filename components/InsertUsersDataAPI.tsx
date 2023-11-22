@@ -39,6 +39,7 @@ const InsertUsersDataAPI = () => {
         id="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        style={{ backgroundColor: '#f0f0f0', color: '#333' }}
       />
 
       <label htmlFor="password">Password:</label>
@@ -47,9 +48,10 @@ const InsertUsersDataAPI = () => {
         id="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        style={{ backgroundColor: '#f0f0f0', color: '#333' }}
       />
 
-      <button onClick={insertUserData}>Insert User Data</button>
+      <button onClick={insertUserData} style={{ backgroundColor: '#0070f3', color: '#fff' }}>Insert User Data</button>
       {result && <div>{result}</div>}
     </div>
   );

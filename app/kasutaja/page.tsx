@@ -11,7 +11,7 @@ export default function YourPage() {
     <div>
       <h1>Your Page</h1>
       
-     
+      <GetUsersData />
       <InsertUsersDataAPI />
     </div>
   );
