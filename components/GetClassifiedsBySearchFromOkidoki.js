@@ -15,27 +15,26 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
   const res = await fetch(
     `https://www.okidoki.ee/buy/all/?query=${search}&c=0`
   );
-  console.log({ search });
   const html = await res.text();
 
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
   const links = document.querySelectorAll(".horiz-offer-card__title-link");
-  /*
-  const classifiedData = Array.from(links).map((link) => {
-    const relativeHref = link.getAttribute("href");
-    const relativeTitle = link.getAttribute("title");
-    return `${relativeTitle}, https://www.okidoki.ee${relativeHref}; `;
-  });*/
+  const prices = document.querySelectorAll(".horiz-offer-card__price-value");
+
+  const data = Array.from(prices).map((price) => {
+    const relativePrice = price.textContent;
+    return relativePrice;
+  });
+  console.log({ data });
+
   const hrefs = Array.from(links).map((link) => {
     const relativeHref = "https://www.okidoki.ee" + link.getAttribute("href");
     const relativeTitle = link.getAttribute("title");
     classifiedData = [relativeHref, relativeTitle];
     return classifiedData;
   });
-
-  console.log({ classifiedData });
 
   return (
     <div>
