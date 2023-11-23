@@ -23,25 +23,30 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
   const links = document.querySelectorAll(".horiz-offer-card__title-link");
   const prices = document.querySelectorAll(".horiz-offer-card__price-value");
 
-  const data = Array.from(prices).map((price) => {
-    const relativePrice = price.textContent;
-    return relativePrice;
-  });
-  console.log({ data });
+  const combinedData = Array.from(prices).map((price, index) => {
+    const relativePrice = price.textContent.trim();
+    const link = links[index];
 
-  const hrefs = Array.from(links).map((link) => {
     const relativeHref = "https://www.okidoki.ee" + link.getAttribute("href");
     const relativeTitle = link.getAttribute("title");
-    classifiedData = [relativeHref, relativeTitle];
-    return classifiedData;
+
+    return {
+      price: relativePrice,
+      href: relativeHref,
+      title: relativeTitle,
+    };
   });
+
+  console.log({ combinedData });
 
   return (
     <div>
       <ul>
-        {hrefs.map((item, index) => (
-          <a key={index} href={item[0]} title={item[1]}>
-            <Typography textAlign="center">{item[1]}</Typography>
+        {combinedData.map((item, index) => (
+          <a key={index} href={item.href} title={item.title}>
+            <Typography textAlign="center">
+              {item.title}, {item.price}
+            </Typography>
           </a>
         ))}
       </ul>
