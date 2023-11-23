@@ -8,7 +8,7 @@ import { relative } from "path";
 // const GetClassifiedsBySearchFromOkidoki = async (search) => {
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
-const page = `https://www.okidoki.ee/buy/all/?sort=4&query=${encodedSearch}`;
+const page = `https://www.okidoki.ee/buy/all/?sort=2&query=${encodedSearch}`;
 console.log({ page });
 let relativeHref;
 let relativeTitle;
@@ -54,12 +54,20 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
       ? dateElement.textContent.trim()
       : undefined;
 
+    const imageElement = classified.querySelector(
+      ".horiz-offer-card__image-link img"
+    );
+    const imageUrl = imageElement
+      ? imageElement.getAttribute("src")
+      : undefined;
+
     return {
       price: relativePrice,
       href: relativeHref,
       title: relativeTitle,
       location: relativeLocation,
       date: relativeDate,
+      imageUrl: imageUrl,
     };
   });
 
@@ -70,10 +78,14 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
       <ul>
         {combinedData.map((item, index) => (
           <a key={index} href={item.href} title={item.title}>
+            <div>
+              <img src={item.imageUrl} alt={item.title} />
+            </div>
             <Typography textAlign="center">
               {item.title}, {item.price !== undefined ? item.price : "N/A"},
-              Asukoht: {item.location !== undefined ? item.location : "N/A"},
-              Lisatud: {item.date !== undefined ? item.date : "N/A"}
+              Location: {item.location !== undefined ? item.location : "N/A"},
+              Date: {item.date !== undefined ? item.date : "N/A"}
+              {/* Add more JSX elements for additional properties */}
             </Typography>
           </a>
         ))}
