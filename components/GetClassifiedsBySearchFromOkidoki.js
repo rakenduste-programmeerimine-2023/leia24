@@ -7,6 +7,7 @@ import { relative } from "path";
 
 // const GetClassifiedsBySearchFromOkidoki = async (search) => {
 const search = "playstation 3";
+
 let relativeHref;
 let relativeTitle;
 let classifiedData;
@@ -20,12 +21,14 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const links = document.querySelectorAll(".horiz-offer-card__title-link");
+  const linksAndTitles = document.querySelectorAll(
+    ".horiz-offer-card__title-link"
+  );
   const prices = document.querySelectorAll(".horiz-offer-card__price-value");
 
   const combinedData = Array.from(prices).map((price, index) => {
     const relativePrice = price.textContent.trim();
-    const link = links[index];
+    const link = linksAndTitles[index];
 
     const relativeHref = "https://www.okidoki.ee" + link.getAttribute("href");
     const relativeTitle = link.getAttribute("title");
