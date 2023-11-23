@@ -8,6 +8,8 @@ import { relative } from "path";
 // const GetClassifiedsBySearchFromOkidoki = async (search) => {
 const search = "playstation 3";
 let relativeHref;
+let relativeTitle;
+let classifiedData;
 const GetClassifiedsBySearchFromOkidoki = async () => {
   console.log(search);
   const res = await fetch(
@@ -27,20 +29,20 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
     return `${relativeTitle}, https://www.okidoki.ee${relativeHref}; `;
   });*/
   const hrefs = Array.from(links).map((link) => {
-    const relativeHref = link.getAttribute("href");
-    return `https://www.okidoki.ee${relativeHref}`;
+    const relativeHref = "https://www.okidoki.ee" + link.getAttribute("href");
+    const relativeTitle = link.getAttribute("title");
+    classifiedData = [relativeHref, relativeTitle];
+    return classifiedData;
   });
 
-  console.log({ hrefs });
-
-  const myArray = ["esimene", "teine"];
+  console.log({ classifiedData });
 
   return (
     <div>
       <ul>
-        {hrefs.map((page) => (
-          <a href={page}>
-            <Typography textAlign="center">{page}</Typography>
+        {hrefs.map((item, index) => (
+          <a key={index} href={item[0]} title={item[1]}>
+            <Typography textAlign="center">{item[1]}</Typography>
           </a>
         ))}
       </ul>
