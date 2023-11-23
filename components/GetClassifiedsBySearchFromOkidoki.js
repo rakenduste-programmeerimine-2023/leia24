@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { relative } from "path";
 
 // const GetClassifiedsBySearchFromOkidoki = async (search) => {
+const site = "Okidoki";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://www.okidoki.ee/buy/all/?sort=2&query=${encodedSearch}`;
@@ -84,7 +85,7 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
             <Typography textAlign="center">
               {item.title}, {item.price !== undefined ? item.price : "N/A"},
               Location: {item.location !== undefined ? item.location : "N/A"},
-              Date: {item.date !== undefined ? item.date : "N/A"}
+              Date: {item.date !== undefined ? item.date : "N/A"}, {site}
               {/* Add more JSX elements for additional properties */}
             </Typography>
           </a>
