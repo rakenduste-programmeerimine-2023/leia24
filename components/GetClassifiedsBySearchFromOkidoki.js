@@ -28,9 +28,12 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
     const linkAndTitle = classified.querySelector(
       ".horiz-offer-card__title-link"
     );
-    const relativeHref =
-      "https://www.okidoki.ee" + linkAndTitle.getAttribute("href");
-    const relativeTitle = linkAndTitle.getAttribute("title");
+    const relativeHref = linkAndTitle
+      ? "https://www.okidoki.ee" + linkAndTitle.getAttribute("href")
+      : undefined;
+    const relativeTitle = linkAndTitle
+      ? linkAndTitle.getAttribute("title")
+      : undefined;
 
     const priceElement = classified.querySelector(
       ".horiz-offer-card__price-value"
@@ -39,10 +42,24 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
       ? priceElement.textContent.trim()
       : undefined;
 
+    const locationElement = classified.querySelector(
+      ".horiz-offer-card__location"
+    );
+    const relativeLocation = locationElement
+      ? locationElement.textContent.trim()
+      : undefined;
+
+    const dateElement = classified.querySelector(".horiz-offer-card__date");
+    const relativeDate = dateElement
+      ? dateElement.textContent.trim()
+      : undefined;
+
     return {
       price: relativePrice,
       href: relativeHref,
       title: relativeTitle,
+      location: relativeLocation,
+      date: relativeDate,
     };
   });
 
@@ -54,7 +71,9 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
         {combinedData.map((item, index) => (
           <a key={index} href={item.href} title={item.title}>
             <Typography textAlign="center">
-              {item.title}, {item.price !== undefined ? item.price : "N/A"}
+              {item.title}, {item.price !== undefined ? item.price : "N/A"},
+              Asukoht: {item.location !== undefined ? item.location : "N/A"},
+              Lisatud: {item.date !== undefined ? item.date : "N/A"}
             </Typography>
           </a>
         ))}
