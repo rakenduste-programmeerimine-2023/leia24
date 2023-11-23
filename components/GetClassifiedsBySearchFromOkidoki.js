@@ -22,18 +22,22 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const linksAndTitles = document.querySelectorAll(
-    ".horiz-offer-card__title-link"
-  );
-  const prices = document.querySelectorAll(".horiz-offer-card__price-value");
+  const classifieds = document.querySelectorAll(".horiz-offer-card");
 
-  const combinedData = Array.from(prices).map((price, index) => {
-    const relativePrice = price.textContent.trim();
-    const linkAndTitle = linksAndTitles[index];
-
+  const combinedData = Array.from(classifieds).map((classified) => {
+    const linkAndTitle = classified.querySelector(
+      ".horiz-offer-card__title-link"
+    );
     const relativeHref =
       "https://www.okidoki.ee" + linkAndTitle.getAttribute("href");
     const relativeTitle = linkAndTitle.getAttribute("title");
+
+    const priceElement = classified.querySelector(
+      ".horiz-offer-card__price-value"
+    );
+    const relativePrice = priceElement
+      ? priceElement.textContent.trim()
+      : undefined;
 
     return {
       price: relativePrice,
@@ -50,7 +54,7 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
         {combinedData.map((item, index) => (
           <a key={index} href={item.href} title={item.title}>
             <Typography textAlign="center">
-              {item.title}, {item.price}
+              {item.title}, {item.price !== undefined ? item.price : "N/A"}
             </Typography>
           </a>
         ))}
