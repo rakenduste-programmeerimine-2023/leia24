@@ -2,8 +2,6 @@ import { JSDOM } from "jsdom";
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import MenuItem from "@mui/material/MenuItem";
-import { relative } from "path";
 
 
 const site = "Soov";
@@ -22,30 +20,30 @@ const GetClassifiedsBySearchFromSoov = async () => {
 
   const combinedData = Array.from(listings).map((listing) => {
     const titleElement = listing.querySelector('.add-image a img');
-    const relativeTitle = titleElement ? titleElement.getAttribute('alt') : undefined;
+    const title = titleElement ? titleElement.getAttribute('alt') : undefined;
 
     const hrefElement = listing.querySelector('.add-image a');
-    const relativeHref = hrefElement ? hrefElement.getAttribute('href') : undefined;
+    const href = hrefElement ? hrefElement.getAttribute('href') : undefined;
 
     const imageUrlElement = listing.querySelector('.add-image a img');
     const imageUrl = imageUrlElement ? imageUrlElement.getAttribute('src') : undefined;
 
     const priceElement = listing.querySelector('.item-price');
-    const relativePrice = priceElement ? priceElement.textContent.trim() : undefined;
+    const price = priceElement ? priceElement.textContent.trim() : undefined;
 
     const locationElement = listing.querySelector('.item-location');
-    const relativeLocation = locationElement ? locationElement.textContent.trim() : undefined;
+    const location = locationElement ? locationElement.textContent.trim() : undefined;
 
     const dateElement = listing.querySelector('.date');
-    const relativeDate = dateElement ? dateElement.textContent.trim() : undefined;
+    const date = dateElement ? dateElement.textContent.trim() : undefined;
 
     return {
-      price: relativePrice,
-      href: relativeHref,
-      title: relativeTitle,
-      location: relativeLocation,
-      date: relativeDate,
-      imageUrl: imageUrl,
+      price,
+      href,
+      title,
+      location,
+      date,
+      imageUrl
     };
   });
 
@@ -62,8 +60,7 @@ const GetClassifiedsBySearchFromSoov = async () => {
             <Typography textAlign="center">
               {item.title}, Price: {item.price !== undefined ? item.price : "N/A"},
               Location: {item.location !== undefined ? item.location : "N/A"},
-              Date: {item.date !== undefined ? item.date : "N/A"}
-              {/* Add more JSX elements for additional properties */}
+              Date: {item.date !== undefined ? item.date : "N/A"}, {site}
             </Typography>
           </a>
         ))}

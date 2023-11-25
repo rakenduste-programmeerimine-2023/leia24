@@ -29,6 +29,7 @@ export default async function Index() {
       </ul>
       <ul>
        <li><GetClassifiedsBySearchFromSoov /></li>
+       <li><GetClassifiedsBySearchFromOkidoki /></li>
       </ul>
       
       
