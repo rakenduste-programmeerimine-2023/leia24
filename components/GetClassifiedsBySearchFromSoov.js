@@ -9,7 +9,7 @@ import { relative } from "path";
 const site = "Soov";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
-const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-asc/listings.html`;
+const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-desc/listings.html`;
 
 const GetClassifiedsBySearchFromSoov = async () => {
   const res = await fetch(page); // Replace with the actual URL
@@ -30,13 +30,13 @@ const GetClassifiedsBySearchFromSoov = async () => {
     const imageUrlElement = listing.querySelector('.add-image a img');
     const imageUrl = imageUrlElement ? imageUrlElement.getAttribute('src') : undefined;
 
-    const priceElement = listing.querySelector('.item-list.gray_bg'); // Replace with the actual class for price
+    const priceElement = listing.querySelector('.item-list.gray_bg');
     const relativePrice = priceElement ? priceElement.textContent.trim() : undefined;
 
-    const locationElement = listing.querySelector('.location-class'); // Replace with the actual class for location
+    const locationElement = listing.querySelector('.item-list.gray_bg + i + b');
     const relativeLocation = locationElement ? locationElement.textContent.trim() : undefined;
 
-    const dateElement = listing.querySelector('.date-class'); // Replace with the actual class for date
+    const dateElement = listing.querySelector('.date');
     const relativeDate = dateElement ? dateElement.textContent.trim() : undefined;
 
     return {
@@ -73,5 +73,7 @@ const GetClassifiedsBySearchFromSoov = async () => {
 };
 
 export default GetClassifiedsBySearchFromSoov;
+
+
 
 
