@@ -8,6 +8,10 @@ const site = "Okidoki";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://www.okidoki.ee/buy/all/?sort=2&query=${encodedSearch}`;
+console.log(page)
+
+function saveClassified() {
+};
 
 const GetClassifiedsBySearchFromOkidoki = async () => {
   const res = await fetch(page);
@@ -71,16 +75,22 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
     <div>
       <ul>
         {combinedData.map((item, index) => (
-          <a key={index} href={item.href} title={item.title}>
+          <div key={index} title={item.title}>
             <div>
               <img src={item.imageUrl} alt={item.title} />
             </div>
             <Typography textAlign="center">
-              {item.title}, Price: {item.price !== undefined ? item.price : "N/A"},
-              Location: {item.location !== undefined ? item.location : "N/A"},
-              Date: {item.date !== undefined ? item.date : "N/A"}, {site}
+              <a href={item.href} >
+                {item.title}
+              </a>
+              <div>
+                Price: {item.price !== undefined ? item.price : "N/A"},
+                Location: {item.location !== undefined ? item.location : "N/A"},
+                Date: {item.date !== undefined ? item.date : "N/A"}, {site}, <button onClick={saveClassified()}>Salvesta kuulutus</button>
+              </div>
+              
             </Typography>
-          </a>
+          </div>
         ))}
       </ul>
     </div>

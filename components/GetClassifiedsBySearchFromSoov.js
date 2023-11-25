@@ -1,14 +1,19 @@
+
 import { JSDOM } from "jsdom";
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import {  } from "path";
-
+import { Button } from "@mui/material";
 
 const site = "Soov";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-desc/listings.html`;
+console.log(page)
+
+function saveClassified() {
+};
 
 const GetClassifiedsBySearchFromSoov = async () => {
   const res = await fetch(page); 
@@ -48,22 +53,28 @@ const GetClassifiedsBySearchFromSoov = async () => {
     };
   });
 
-  console.log({ combinedData });
+  // console.log({ combinedData });
 
   return (
     <div>
       <ul>
         {combinedData.map((item, index) => (
-          <a key={index} href={item.href} title={item.title}>
+          <div key={index} title={item.title}>
             <div>
               <img src={item.imageUrl} alt={item.title} />
             </div>
             <Typography textAlign="center">
-              {item.title}, Price: {item.price !== undefined ? item.price : "N/A"},
-              Location: {item.location !== undefined ? item.location : "N/A"},
-              Date: {item.date !== undefined ? item.date : "N/A"}, {site}
+              <a href={item.href} >
+                {item.title}
+              </a>
+              <div>
+                Price: {item.price !== undefined ? item.price : "N/A"},
+                Location: {item.location !== undefined ? item.location : "N/A"},
+                Date: {item.date !== undefined ? item.date : "N/A"}, {site}, <button onClick={saveClassified()}>Salvesta kuulutus</button>
+              </div>
+              
             </Typography>
-          </a>
+          </div>
         ))}
       </ul>
     </div>
