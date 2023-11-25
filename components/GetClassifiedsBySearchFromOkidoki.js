@@ -83,7 +83,7 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
               <img src={item.imageUrl} alt={item.title} />
             </div>
             <Typography textAlign="center">
-              {item.title}, {item.price !== undefined ? item.price : "N/A"},
+              {item.title}, Price: {item.price !== undefined ? item.price : "N/A"},
               Location: {item.location !== undefined ? item.location : "N/A"},
               Date: {item.date !== undefined ? item.date : "N/A"}, {site}
               {/* Add more JSX elements for additional properties */}

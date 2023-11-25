@@ -30,22 +30,22 @@ const GetClassifiedsBySearchFromSoov = async () => {
     const imageUrlElement = listing.querySelector('.add-image a img');
     const imageUrl = imageUrlElement ? imageUrlElement.getAttribute('src') : undefined;
 
-    const priceElement = listing.querySelector('.item-list.gray_bg');
+    const priceElement = listing.querySelector('.item-price');
     const relativePrice = priceElement ? priceElement.textContent.trim() : undefined;
 
-    const locationElement = listing.querySelector('.item-list.gray_bg + i + b');
+    const locationElement = listing.querySelector('.item-location');
     const relativeLocation = locationElement ? locationElement.textContent.trim() : undefined;
 
     const dateElement = listing.querySelector('.date');
     const relativeDate = dateElement ? dateElement.textContent.trim() : undefined;
 
     return {
-      title: relativeTitle,
-      href: relativeHref,
-      imageUrl: imageUrl,
       price: relativePrice,
+      href: relativeHref,
+      title: relativeTitle,
       location: relativeLocation,
       date: relativeDate,
+      imageUrl: imageUrl,
     };
   });
 
@@ -60,7 +60,7 @@ const GetClassifiedsBySearchFromSoov = async () => {
               <img src={item.imageUrl} alt={item.title} />
             </div>
             <Typography textAlign="center">
-              {item.title}, {item.price !== undefined ? item.price : "N/A"},
+              {item.title}, Price: {item.price !== undefined ? item.price : "N/A"},
               Location: {item.location !== undefined ? item.location : "N/A"},
               Date: {item.date !== undefined ? item.date : "N/A"}
               {/* Add more JSX elements for additional properties */}
