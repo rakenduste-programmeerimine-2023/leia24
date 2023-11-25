@@ -2,6 +2,7 @@ import { JSDOM } from "jsdom";
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
+import {  } from "path";
 
 
 const site = "Soov";
@@ -10,31 +11,31 @@ const encodedSearch = encodeURIComponent(search);
 const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-desc/listings.html`;
 
 const GetClassifiedsBySearchFromSoov = async () => {
-  const res = await fetch(page); // Replace with the actual URL
+  const res = await fetch(page); 
   const html = await res.text();
 
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const listings = document.querySelectorAll('.item-list');
+  const classifieds = document.querySelectorAll('.listings-wrapper');
 
-  const combinedData = Array.from(listings).map((listing) => {
-    const titleElement = listing.querySelector('.add-image a img');
+  const combinedData = Array.from(classifieds).map((classified) => {
+    const titleElement = classified.querySelector('.add-image a img');
     const title = titleElement ? titleElement.getAttribute('alt') : undefined;
 
-    const hrefElement = listing.querySelector('.add-image a');
+    const hrefElement = classified.querySelector('.add-image a');
     const href = hrefElement ? hrefElement.getAttribute('href') : undefined;
 
-    const imageUrlElement = listing.querySelector('.add-image a img');
+    const imageUrlElement = classified.querySelector('.add-image a img');
     const imageUrl = imageUrlElement ? imageUrlElement.getAttribute('src') : undefined;
 
-    const priceElement = listing.querySelector('.item-price');
+    const priceElement = classified.querySelector('.item-price');
     const price = priceElement ? priceElement.textContent.trim() : undefined;
 
-    const locationElement = listing.querySelector('.item-location');
+    const locationElement = classified.querySelector('.item-location');
     const location = locationElement ? locationElement.textContent.trim() : undefined;
 
-    const dateElement = listing.querySelector('.date');
+    const dateElement = classified.querySelector('.date');
     const date = dateElement ? dateElement.textContent.trim() : undefined;
 
     return {
@@ -47,7 +48,7 @@ const GetClassifiedsBySearchFromSoov = async () => {
     };
   });
 
-  // console.log({ combinedData });
+  console.log({ combinedData });
 
   return (
     <div>
