@@ -98,3 +98,5 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
 };
 
 export default GetClassifiedsBySearchFromOkidoki;
+
+// pull request
