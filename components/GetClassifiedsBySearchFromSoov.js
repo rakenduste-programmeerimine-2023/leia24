@@ -24,7 +24,7 @@ const GetClassifiedsBySearchFromSoov = async () => {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const classifieds = document.querySelectorAll(".listings-wrapper");
+  const classifieds = document.querySelectorAll(".item-list:not([class*=' '])");
 
   const combinedData = Array.from(classifieds).map((classified) => {
     const titleElement = classified.querySelector(".add-image a img");
