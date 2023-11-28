@@ -28,6 +28,7 @@ export default async function Index() {
        <li><Link href="..">Avalehele</Link></li>
       </ul>
       <ul>
+       <li><GetClassifiedsBySearchFromSoov /></li>
        <li><GetClassifiedsBySearchFromOkidoki /></li>
       </ul>
       
