@@ -7,7 +7,7 @@ import {} from "path";
 const site = "Okidoki";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
-const page = `https://www.okidoki.ee/buy/all/?sort=2&query=${encodedSearch}`;
+const page = `https://www.okidoki.ee/buy/all/?sort=4&query=${encodedSearch}`;
 console.log(page);
 
 function saveClassified() {}

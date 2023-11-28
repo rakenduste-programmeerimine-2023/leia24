@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 const site = "Soov";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
-const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-desc/listings.html`;
+const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-asc/listings.html`;
 console.log(page);
 
 function saveClassified() {}
