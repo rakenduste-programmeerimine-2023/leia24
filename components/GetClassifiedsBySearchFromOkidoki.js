@@ -12,10 +12,12 @@ console.log(page);
 
 function saveClassified() {}
 
-const GetClassifiedsBySearchFromOkidoki = async () => {
+// ...
+
+const combinedDataOkidoki = async () => {
   const res = await fetch(page, {
     headers: {
-      "Cache-Control": "no-store", // Add this header to disable caching
+      "Cache-Control": "no-store",
     },
   });
   const html = await res.text();
@@ -63,35 +65,13 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
       location,
       date,
       imageUrl,
+      site,
     };
   });
 
-  // console.log({ combinedData });
+  //  console.log({ combinedData });
 
-  return (
-    <div>
-      <ul>
-        {combinedData.map((item, index) => (
-          <div key={index} title={item.title}>
-            <div>
-              <img src={item.imageUrl} alt={item.title} />
-            </div>
-            <Typography textAlign="center">
-              <a href={item.href}>{item.title}</a>
-              <div>
-                Price: {item.price !== undefined ? item.price : "N/A"},
-                Location: {item.location !== undefined ? item.location : "N/A"},
-                Date: {item.date !== undefined ? item.date : "N/A"}, {site},{" "}
-                <button onClick={saveClassified()}>Salvesta kuulutus</button>
-              </div>
-            </Typography>
-          </div>
-        ))}
-      </ul>
-    </div>
-  );
+  return combinedData;
 };
 
-export default GetClassifiedsBySearchFromOkidoki;
-
-// pull request
+export default combinedDataOkidoki;

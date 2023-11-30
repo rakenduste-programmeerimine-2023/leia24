@@ -11,10 +11,12 @@ import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 import GetClassifiedsBySearchFromOkidoki from '@/components/GetClassifiedsBySearchFromOkidoki'
 import GetClassifiedsBySearchFromSoov from '@/components/GetClassifiedsBySearchFromSoov'
-import BoxBasic from '@/components/BoxBasic'
-import TestComponent from '@/components/TestComponent'
+import CombinedClassifieds from '@/components/CombinedClassifieds'
+import GetClassifiedsBySearch from '@/components/GetClassifiedsBySearch'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 import Link from 'next/link'
+
+import TestSearch from '@/components/TestSearch'
 
 export default async function Index() {
 
@@ -28,8 +30,8 @@ export default async function Index() {
        <li><Link href="..">Avalehele</Link></li>
       </ul>
       <ul>
-       <li><GetClassifiedsBySearchFromSoov /></li>
-       <li><GetClassifiedsBySearchFromOkidoki /></li>
+       <li><TestSearch/></li>
+       <li><GetClassifiedsBySearch/></li>
       </ul>
       
       
