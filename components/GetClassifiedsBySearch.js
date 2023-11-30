@@ -10,12 +10,16 @@ const GetClassifiedsBySearch = async () => {
   const okidokiData = await combinedDataOkidoki();
   const soovData = await combinedDataSoov();
 
-  console.log({ soovData });
+  // console.log({ soovData });
 
   let combinedData = okidokiData.concat(soovData);
 
   combinedData.sort(function (a, b) {
-    return a - b;
+    // Convert price to numbers for proper comparison
+    const priceA = parseFloat(a.price) || 0;
+    const priceB = parseFloat(b.price) || 0;
+
+    return priceA - priceB;
   });
 
   return (
