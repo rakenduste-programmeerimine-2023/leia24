@@ -3,9 +3,10 @@ import { JSDOM } from "jsdom";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import {} from "path";
+import Search from "@/components/Search";
 
 const site = "Okidoki";
-const search = "xbox one";
+const search = Search;
 const encodedSearch = encodeURIComponent(search);
 const page = `https://www.okidoki.ee/buy/all/?sort=4&query=${encodedSearch}`;
 console.log(page);

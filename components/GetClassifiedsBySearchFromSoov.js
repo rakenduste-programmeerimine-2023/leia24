@@ -4,9 +4,10 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import {} from "path";
 import { Button } from "@mui/material";
+import Search from "@/components/Search";
 
+const search = Search;
 const site = "Soov";
-const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-asc/listings.html`;
 console.log(page);
