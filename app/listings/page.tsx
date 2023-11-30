@@ -15,12 +15,16 @@ import BoxBasic from '@/components/BoxBasic'
 import TestComponent from '@/components/TestComponent'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 import Link from 'next/link'
+import InsertFavoriteItem from '@/components/InsertFavouriteItem'
+import SearchComponent from '@/components/search'
+import GetClassifiedsBySearchFromOkidokiTEST from '@/components/GetClassifiedsBySearchFromOkidoki'
 
 export default async function Index() {
 
 
   return (
     <div>
+      
       <ResponsiveAppBar/>
       <input id='search' type='search'></input>
       <h1>Siin on kuulutused</h1><br/>
@@ -29,9 +33,11 @@ export default async function Index() {
       </ul>
       <ul>
        <li><GetClassifiedsBySearchFromSoov /></li>
-       <li><GetClassifiedsBySearchFromOkidoki /></li>
+       <li><GetClassifiedsBySearchFromOkidokiTEST /></li>
       </ul>
+
       
+      <InsertFavoriteItem href={undefined} userId={undefined} />
       
     </div>
   )

@@ -13,6 +13,7 @@ import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 
 import Link from 'next/link'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
+import { useRouter } from 'next/router'
 
 
 export default async function Index() {
