@@ -30,8 +30,6 @@ export default async function Index() {
       <h1>Siin on avaleht</h1><br/>
       <ul>
         <li><Link href="/listings">Kuulutustele</Link></li>
-        <li><Link href="/listings">Kuulutustele</Link></li>
-        <li><Link href="/listings">Kuulutustele</Link></li>
       </ul>
 
 
