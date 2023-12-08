@@ -24,7 +24,10 @@ export default async function Index() {
   return (
     <div>
       <ResponsiveAppBar/>
-      <input id='search' type='search'></input>
+      <form action="/listings">
+        <input type="text" placeholder="Search.." name="search1"></input>
+        <button type="submit">Submit</button>
+      </form>
       <h1>Siin on kuulutused</h1><br/>
       <ul>
        <li><Link href="..">Avalehele</Link></li>

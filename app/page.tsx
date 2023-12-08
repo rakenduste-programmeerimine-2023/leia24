@@ -1,3 +1,4 @@
+import React from 'react'
 import DeployButton from '../components/DeployButton'
 import AuthButton from '../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
@@ -13,6 +14,8 @@ import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 
 import Link from 'next/link'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
+import SearchContainer from '@/components/SearchContainer'
+
 
 
 export default async function Index() {
@@ -21,11 +24,8 @@ export default async function Index() {
 
     <div>
       <ResponsiveAppBar/>
+      <SearchContainer/>
 
-      <form action="/listings">
-        <input type="text" placeholder="Search.." name="search"></input>
-        <button type="submit">Submit</button>
-      </form>
       
       <h1>Siin on avaleht</h1><br/>
       <ul>
@@ -41,3 +41,10 @@ export default async function Index() {
 
 //  <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
 //  <a href='/listings'>Kuulutused hrefiga</a>
+/*
+
+      <form action="/listings">
+        <input type="text" placeholder="Search.." name="search"></input>
+        <button type="submit">Submit</button>
+      </form>
+*/
