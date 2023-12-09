@@ -13,26 +13,28 @@ import GetClassifiedsBySearchFromOkidoki from '@/components/GetClassifiedsBySear
 import GetClassifiedsBySearchFromSoov from '@/components/GetClassifiedsBySearchFromSoov'
 import BoxBasic from '@/components/BoxBasic'
 import TestComponent from '@/components/TestComponent'
-import ResponsiveAppBar from '@/components/ResponsiveAppBar'
-import Link from 'next/link'
+import ResponsiveAppBar from '@/components/ResponsiveAppBar';
+import Link from 'next/link';
+import GetClassifiedsBySearchFromOkidokiTEST from '@/components/GetClassifiedsBySearchFromOkidokiTEST';
+import SearchComponent from '@/components/SearchComponent'; // Corrected import
 
-export default async function Index() {
-
-
+export default function Index() {
   return (
     <div>
-      <ResponsiveAppBar/>
+      <ResponsiveAppBar />
       <input id='search' type='search'></input>
-      <h1>Siin on kuulutused</h1><br/>
+      <h1>Siin on kuulutused</h1><br />
       <ul>
-       <li><Link href="..">Avalehele</Link></li>
+        <li><Link href="..">Avalehele</Link></li>
       </ul>
       <ul>
-       <li><GetClassifiedsBySearchFromSoov /></li>
-       <li><GetClassifiedsBySearchFromOkidoki /></li>
+        <li><SearchComponent /></li> {/* Corrected component name */}
+        <li><GetClassifiedsBySearchFromOkidokiTEST /></li>
       </ul>
-      
-      
     </div>
-  )
+  );
 }
+
+
+//<li><GetClassifiedsBySearchFromSoov /></li>
+//<li><GetClassifiedsBySearchFromOkidoki /></li>

@@ -2,16 +2,16 @@ import { JSDOM } from "jsdom";
 
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import {  } from "path";
+import {} from "path";
+//import { useState } from "react";
 
 const site = "Okidoki";
 const search = "xbox one";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://www.okidoki.ee/buy/all/?sort=2&query=${encodedSearch}`;
-console.log(page)
+console.log(page);
 
-function saveClassified() {
-};
+function saveClassified() {}
 
 const GetClassifiedsBySearchFromOkidoki = async () => {
   const res = await fetch(page);
@@ -29,16 +29,12 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
     const href = linkAndTitle
       ? "https://www.okidoki.ee" + linkAndTitle.getAttribute("href")
       : undefined;
-    const title = linkAndTitle
-      ? linkAndTitle.getAttribute("title")
-      : undefined;
+    const title = linkAndTitle ? linkAndTitle.getAttribute("title") : undefined;
 
     const priceElement = classified.querySelector(
       ".horiz-offer-card__price-value"
     );
-    const price = priceElement
-      ? priceElement.textContent.trim()
-      : undefined;
+    const price = priceElement ? priceElement.textContent.trim() : undefined;
 
     const locationElement = classified.querySelector(
       ".horiz-offer-card__location"
@@ -48,9 +44,7 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
       : undefined;
 
     const dateElement = classified.querySelector(".horiz-offer-card__date");
-    const date = dateElement
-      ? dateElement.textContent.trim()
-      : undefined;
+    const date = dateElement ? dateElement.textContent.trim() : undefined;
 
     const imageElement = classified.querySelector(
       ".horiz-offer-card__image-link img"
@@ -65,7 +59,7 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
       title,
       location,
       date,
-      imageUrl
+      imageUrl,
     };
   });
 
@@ -80,15 +74,13 @@ const GetClassifiedsBySearchFromOkidoki = async () => {
               <img src={item.imageUrl} alt={item.title} />
             </div>
             <Typography textAlign="center">
-              <a href={item.href} >
-                {item.title}
-              </a>
+              <a href={item.href}>{item.title}</a>
               <div>
                 Price: {item.price !== undefined ? item.price : "N/A"},
                 Location: {item.location !== undefined ? item.location : "N/A"},
-                Date: {item.date !== undefined ? item.date : "N/A"}, {site}, <button onClick={saveClassified()}>Salvesta kuulutus</button>
+                Date: {item.date !== undefined ? item.date : "N/A"}, {site},{" "}
+                <button onClick={saveClassified()}>Salvesta kuulutus</button>
               </div>
-              
             </Typography>
           </div>
         ))}
