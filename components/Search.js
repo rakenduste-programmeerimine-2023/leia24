@@ -1,6 +1,9 @@
 // components/Search.js
 import React from "react";
 
+let Search = "ps5";
+export default Search;
+/*
 const Search = ({ value, onChange, onSearch }) => {
   return (
     <div>
@@ -11,9 +14,9 @@ const Search = ({ value, onChange, onSearch }) => {
         onChange={onChange}
       />
       <button onClick={onSearch}>Search</button>
-      {/* Add more search-related components or logic here */}
     </div>
   );
 };
 
 export default Search;
+*/
