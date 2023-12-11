@@ -1,13 +1,11 @@
+// Search.js
+import React from "react";
 import UrlParam from "./UrlParam";
-
+const Search = "xbox 360";
+/*
 const Search = () => {
-  // Use the UrlParam component to get the query string
-  const queryString = UrlParam();
-
-  // Your logic using the query string
-  console.log("Query String in Search component:", queryString);
-
-  return queryString;
+  const searchValue = UrlParam();
+  return <div>{searchValue}</div>;
 };
-
+*/
 export default Search;

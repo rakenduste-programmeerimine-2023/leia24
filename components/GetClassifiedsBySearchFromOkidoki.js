@@ -6,9 +6,12 @@ import {} from "path";
 import Search from "@/components/Search";
 import UrlParam from "./UrlParam";
 
-console.log({ UrlParam });
-// const search = Search;
 const search = Search;
+/*
+const search = ({ searchValue }) => {
+  console.log({ searchValue });
+};
+*/
 const site = "Okidoki";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://www.okidoki.ee/buy/all/?query=${encodedSearch}&sort=4&pp=200`;
