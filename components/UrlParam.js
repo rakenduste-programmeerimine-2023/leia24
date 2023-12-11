@@ -2,6 +2,14 @@
 "use client";
 import { useEffect, useState } from "react";
 
+export default function App() {
+  const queryParameters = new URLSearchParams(window.location.search);
+  const search = queryParameters.get("search");
+
+  return search;
+}
+
+/*
 const UrlParam = () => {
   let queryString = window.location.search;
   console.log(typeof queryString);
@@ -15,3 +23,4 @@ const UrlParam = () => {
 };
 
 export default UrlParam;
+*/
