@@ -14,7 +14,7 @@ const page = [
   `https://soov.ee/keyword-${encodedSearch}/order-price/order_way-asc/2/listings.html`,
 ];
 
-console.log(page);
+// console.log(page);
 
 function saveClassified() {}
 

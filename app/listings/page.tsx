@@ -26,7 +26,7 @@ export default async function Index() {
 
   return (
     <div>
-      <UrlParam/> 
+      <UrlParam/>
       <ResponsiveAppBar/>
       <BasicPagination/>
       <Pagination/>
