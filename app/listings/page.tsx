@@ -17,6 +17,8 @@ import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 import Link from 'next/link'
 
 import TestSearch from '@/components/TestSearch'
+import BasicPagination from '@/components/BasicPagination'
+import Pagination from '@/components/Pagination'
 
 export default async function Index() {
 
@@ -24,6 +26,8 @@ export default async function Index() {
   return (
     <div>
       <ResponsiveAppBar/>
+      <BasicPagination/>
+      <Pagination/>
       <form action="/listings">
         <input type="text" placeholder="Search.." name="search1"></input>
         <button type="submit">Submit</button>

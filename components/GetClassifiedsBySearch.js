@@ -18,6 +18,10 @@ const GetClassifiedsBySearch = async () => {
     return priceA - priceB;
   });
 
+  let from = 0;
+  let to = 25;
+  combinedData = combinedData.slice(from, to);
+
   return (
     <div>
       <ul>
