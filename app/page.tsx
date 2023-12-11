@@ -25,6 +25,7 @@ export default async function Index() {
     <div>
       <ResponsiveAppBar/>
       <SearchClient/>
+      
 
       
       <h1>Siin on avaleht</h1><br/>

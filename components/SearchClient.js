@@ -11,15 +11,10 @@ const SearchClient = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Enter search term"
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+    <form action="/listings">
+      <input type="text" placeholder="Search.." name="search"></input>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 

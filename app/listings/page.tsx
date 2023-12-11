@@ -19,17 +19,19 @@ import Link from 'next/link'
 import TestSearch from '@/components/TestSearch'
 import BasicPagination from '@/components/BasicPagination'
 import Pagination from '@/components/Pagination'
+import UrlParam from '@/components/UrlParam'
 
 export default async function Index() {
 
 
   return (
     <div>
+      <UrlParam/> 
       <ResponsiveAppBar/>
       <BasicPagination/>
       <Pagination/>
       <form action="/listings">
-        <input type="text" placeholder="Search.." name="search1"></input>
+        <input type="text" placeholder="Search.." name="search"></input>
         <button type="submit">Submit</button>
       </form>
       <h1>Siin on kuulutused</h1><br/>

@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import combinedDataOkidoki from "@/components/GetClassifiedsBySearchFromOkidoki";
 import combinedDataSoov from "@/components/GetClassifiedsBySearchFromSoov";
+import Pagination from "@/components/Pagination";
 
 const GetClassifiedsBySearch = async () => {
   const okidokiData = await combinedDataOkidoki();
@@ -18,9 +19,9 @@ const GetClassifiedsBySearch = async () => {
     return priceA - priceB;
   });
 
-  let from = 0;
-  let to = 25;
-  combinedData = combinedData.slice(from, to);
+  let fromAd = 0;
+  let toAd = 25;
+  combinedData = combinedData.slice(fromAd, toAd);
 
   return (
     <div>

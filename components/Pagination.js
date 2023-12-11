@@ -1,13 +1,15 @@
 "use client";
+let fromAd;
+let toAd;
 
-export default async function Index() {
-  function doSth() {
-    from += 25;
-    to += 25;
+export default function Pagination() {
+  function add25() {
+    fromAd += 25;
+    toAd += 25;
   }
   return (
     <div>
-      <button onClick={doSth}>Button</button>
+      <button onClick={add25}>Add 25</button>
     </div>
   );
 }
