@@ -16,7 +16,7 @@ import Link from 'next/link'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 import SearchContainer from '@/components/SearchContainer'
 
-
+import SearchClient from '@/components/SearchClient'
 
 export default async function Index() {
 
@@ -24,7 +24,7 @@ export default async function Index() {
 
     <div>
       <ResponsiveAppBar/>
-      <SearchContainer/>
+      <SearchClient/>
 
       
       <h1>Siin on avaleht</h1><br/>
