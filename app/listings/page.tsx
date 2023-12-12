@@ -24,8 +24,13 @@ import React, { useEffect, useState } from 'react'
 import { Typography } from '@mui/material'
 
 import {} from "path";
-import "@/components/banner.css";
+import "@/styles/banner.css";
 import Box from "@mui/material/Box";
+import "@/styles/global.css"
+import "@/styles/theme.css"
+import "@/styles/homepage.css"
+import PrimarySearchAppBar from '@/components/PrimarySearchAppBar'
+import { BrowserRouter } from 'react-router-dom'
 
 export default function Index() {
   // let combinedData = [1,2,3]
@@ -51,50 +56,52 @@ export default function Index() {
   }, []);
 
   return (
+    <BrowserRouter>
     <div>
-      
-      <ResponsiveAppBar/>
-      <BasicPagination/>
-      <Pagination/>
+      <PrimarySearchAppBar/>
+        
       <form action="/listings">
         <input type="text" placeholder="Search.." name="search"></input>
         <button type="submit">Submit</button>
       </form>
-      <h1>Siin on kuulutused</h1><br/>
-      <ul>
-       <li><Link href="..">Avalehele</Link></li>
-      </ul>
-      <ul>
-        <li>
+      <UrlParam/>
+      <h2>Kuulutused</h2><br/>
+      <div className="center">
+          <BasicPagination/>
+        </div>
+      
+       <Link href="..">Avalehele</Link>
+      
         <div>
-      <ul>
+      
         {data.map((item, index) => (
           <Box className="banner-box" >
           <div key={index} title={item.title}>
-            <div>
+            <div className='child'>
               <img src={item.imageUrl} alt={item.title} />
             </div>
-            <Box className="data">
+            <div className='child'>
               <Box className="title">
                 <a href={item.href}>{item.title}</a>
               </Box>
               <div>
-                Price: {item.price !== undefined ? item.price : "N/A"}<br/>
-                Location: {item.location !== undefined ? item.location : "N/A"}<br/>
-                Date: {item.date !== undefined ? item.date : "N/A"}<br/>
-                {item.site}<br/>{" "}<br/>
+                Hind: {item.price !== undefined ? item.price : "N/A"}<br/>
+                Asukoht: {item.location !== undefined ? item.location : "N/A"}<br/>
+                Kuupäev: {item.date !== undefined ? item.date : "N/A"}<br/>
+                Sait: {item.site}<br/>{" "}<br/>
                 <button>Salvesta kuulutus</button>
               </div>
-            </Box>
+            </div>
           </div>
           </Box>
         ))}
-      </ul>
+        <div className="center">
+          <BasicPagination/>
+        </div>
     </div>
-        </li>
-      </ul>
       
       
     </div>
+  </BrowserRouter>
   )
 }

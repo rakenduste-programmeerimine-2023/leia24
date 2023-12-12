@@ -19,11 +19,26 @@ button {
     border-radius: 2px;
     padding: 2px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-}
-
-.data {
+    border: 1px solid black;
+    margin: 1rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 2rem 2rem;
     text-align: center;
 }
+
+.parent {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+
+.child {
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+  }
 
 .title {
     font-size: x-large;
