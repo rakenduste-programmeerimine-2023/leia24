@@ -59,20 +59,19 @@ export default function Index() {
     <BrowserRouter>
     <div>
       <PrimarySearchAppBar/>
-        <div className="center">
-          <BasicPagination/>
-        </div>
+        
       <form action="/listings">
         <input type="text" placeholder="Search.." name="search"></input>
         <button type="submit">Submit</button>
       </form>
       <UrlParam/>
       <h2>Kuulutused</h2><br/>
-      <ul>
-       <li><Link href="..">Avalehele</Link></li>
-      </ul>
-      <ul>
-        <li>
+      <div className="center">
+          <BasicPagination/>
+        </div>
+      
+       <Link href="..">Avalehele</Link>
+      
         <div>
       
         {data.map((item, index) => (
@@ -100,8 +99,6 @@ export default function Index() {
           <BasicPagination/>
         </div>
     </div>
-        </li>
-      </ul>
       
       
     </div>
