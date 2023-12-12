@@ -22,7 +22,14 @@ const GetClassifiedsBySearch = async () => {
   let toAd = 25;
   combinedData = combinedData.slice(fromAd, toAd);
 
-  return (
+  // console.log(combinedData);
+  return combinedData;
+};
+
+export default GetClassifiedsBySearch;
+
+/*
+return (
     <div>
       <ul>
         {combinedData.map((item, index) => (
@@ -44,6 +51,4 @@ const GetClassifiedsBySearch = async () => {
       </ul>
     </div>
   );
-};
-
-export default GetClassifiedsBySearch;
+  */
