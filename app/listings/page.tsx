@@ -23,6 +23,10 @@ import UrlParam from '@/components/UrlParam'
 import React, { useEffect, useState } from 'react'
 import { Typography } from '@mui/material'
 
+import {} from "path";
+import "@/components/banner.css";
+import Box from "@mui/material/Box";
+
 export default function Index() {
   // let combinedData = [1,2,3]
   /*
@@ -65,6 +69,7 @@ export default function Index() {
         <div>
       <ul>
         {data.map((item, index) => (
+          <Box className="banner-box" >
           <div key={index} title={item.title}>
             <div>
               <img src={item.imageUrl} alt={item.title} />
@@ -79,6 +84,7 @@ export default function Index() {
               </div>
             </Typography>
           </div>
+          </Box>
         ))}
       </ul>
     </div>
