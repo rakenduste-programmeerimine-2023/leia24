@@ -28,6 +28,8 @@ import "@/styles/banner.css";
 import Box from "@mui/material/Box";
 import "@/styles/global.css"
 import "@/styles/theme.css"
+import PrimarySearchAppBar from '@/components/PrimarySearchAppBar'
+import { BrowserRouter } from 'react-router-dom'
 
 export default function Index() {
   // let combinedData = [1,2,3]
@@ -53,16 +55,18 @@ export default function Index() {
   }, []);
 
   return (
+    <BrowserRouter>
     <div>
-      
-      <ResponsiveAppBar/>
-      <BasicPagination/>
-      <Pagination/>
+      <PrimarySearchAppBar/>
+        <div className="center">
+          <BasicPagination/>
+        </div>
       <form action="/listings">
         <input type="text" placeholder="Search.." name="search"></input>
         <button type="submit">Submit</button>
       </form>
-      <h1>Siin on kuulutused</h1><br/>
+      <UrlParam/>
+      <h2>Kuulutused</h2><br/>
       <ul>
        <li><Link href="..">Avalehele</Link></li>
       </ul>
@@ -91,6 +95,9 @@ export default function Index() {
           </div>
           </Box>
         ))}
+        <div className="center">
+          <BasicPagination/>
+        </div>
       </ul>
     </div>
         </li>
@@ -98,5 +105,6 @@ export default function Index() {
       
       
     </div>
+  </BrowserRouter>
   )
 }
