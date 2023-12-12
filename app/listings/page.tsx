@@ -26,6 +26,8 @@ import { Typography } from '@mui/material'
 import {} from "path";
 import "@/styles/banner.css";
 import Box from "@mui/material/Box";
+import "@/styles/global.css"
+import "@/styles/theme.css"
 
 export default function Index() {
   // let combinedData = [1,2,3]
