@@ -77,10 +77,10 @@ export default function Index() {
         {data.map((item, index) => (
           <Box className="banner-box" >
           <div key={index} title={item.title}>
-            <div>
+            <div className='child'>
               <img src={item.imageUrl} alt={item.title} />
             </div>
-            <Box className="data">
+            <div className='child'>
               <Box className="title">
                 <a href={item.href}>{item.title}</a>
               </Box>
@@ -91,7 +91,7 @@ export default function Index() {
                 {item.site}<br/>{" "}<br/>
                 <button>Salvesta kuulutus</button>
               </div>
-            </Box>
+            </div>
           </div>
           </Box>
         ))}
