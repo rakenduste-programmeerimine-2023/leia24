@@ -74,15 +74,18 @@ export default function Index() {
             <div>
               <img src={item.imageUrl} alt={item.title} />
             </div>
-            <Typography textAlign="center">
-              <a href={item.href}>{item.title}</a>
+            <Box className="data">
+              <Box className="title">
+                <a href={item.href}>{item.title}</a>
+              </Box>
               <div>
-                Price: {item.price !== undefined ? item.price : "N/A"},
-                Location: {item.location !== undefined ? item.location : "N/A"},
-                Date: {item.date !== undefined ? item.date : "N/A"},{item.site},{" "}
+                Price: {item.price !== undefined ? item.price : "N/A"}<br/>
+                Location: {item.location !== undefined ? item.location : "N/A"}<br/>
+                Date: {item.date !== undefined ? item.date : "N/A"}<br/>
+                {item.site}<br/>{" "}<br/>
                 <button>Salvesta kuulutus</button>
               </div>
-            </Typography>
+            </Box>
           </div>
           </Box>
         ))}
