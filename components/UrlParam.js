@@ -1,6 +1,4 @@
 // UrlParam.js
-"use client";
-import { useEffect, useState } from "react";
 
 export default function App() {
   const queryParameters = new URLSearchParams(window.location.search);
