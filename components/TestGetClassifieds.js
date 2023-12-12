@@ -7,7 +7,7 @@ import {} from "path";
 import Search from "@/components/Search";
 import UrlParam from "./UrlParam";
 
-const search = Search;
+const search = TestSearch();
 /*
 const search = ({ searchValue }) => {
   console.log({ searchValue });
@@ -17,7 +17,6 @@ const site = "Okidoki";
 const encodedSearch = encodeURIComponent(search);
 const page = `https://www.okidoki.ee/buy/all/?query=${encodedSearch}&sort=4&pp=200`;
 console.log({ search });
-console.log({ page });
 
 function saveClassified() {}
 

@@ -1,4 +1,4 @@
-
+"use client"
 import { createClient } from '@/utils/supabase/server'
 import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
 import SignUpUserSteps from '@/components/SignUpUserSteps'
@@ -11,25 +11,87 @@ import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 import GetClassifiedsBySearchFromOkidoki from '@/components/GetClassifiedsBySearchFromOkidoki'
 import GetClassifiedsBySearchFromSoov from '@/components/GetClassifiedsBySearchFromSoov'
-import BoxBasic from '@/components/BoxBasic'
-import TestComponent from '@/components/TestComponent'
+import CombinedClassifieds from '@/components/CombinedClassifieds'
+import GetClassifiedsBySearch from '@/components/GetClassifiedsBySearch'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 import Link from 'next/link'
 
-export default async function Index() {
+import TestSearch from '@/components/TestSearch'
+import BasicPagination from '@/components/BasicPagination'
+import Pagination from '@/components/Pagination'
+import UrlParam from '@/components/UrlParam'
+import React, { useEffect, useState } from 'react'
+import { Typography } from '@mui/material'
 
+import {} from "path";
+import "@/components/banner.css";
+import Box from "@mui/material/Box";
+
+export default function Index() {
+  // let combinedData = [1,2,3]
+  /*
+  const[combinedData, setCombinedData] = useState<Array<Array>([])
+
+
+  useEffect(() => {
+    const combinedData = GetClassifiedsBySearch()
+    return combinedData
+  });
+
+*/
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const result = await GetClassifiedsBySearch();
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
+      
       <ResponsiveAppBar/>
-      <input id='search' type='search'></input>
+      <BasicPagination/>
+      <Pagination/>
+      <form action="/listings">
+        <input type="text" placeholder="Search.." name="search"></input>
+        <button type="submit">Submit</button>
+      </form>
       <h1>Siin on kuulutused</h1><br/>
       <ul>
        <li><Link href="..">Avalehele</Link></li>
       </ul>
       <ul>
-       <li><GetClassifiedsBySearchFromSoov /></li>
-       <li><GetClassifiedsBySearchFromOkidoki /></li>
+        <li>
+        <div>
+      <ul>
+        {data.map((item, index) => (
+          <Box className="banner-box" >
+          <div key={index} title={item.title}>
+            <div>
+              <img src={item.imageUrl} alt={item.title} />
+            </div>
+            <Box className="data">
+              <Box className="title">
+                <a href={item.href}>{item.title}</a>
+              </Box>
+              <div>
+                Price: {item.price !== undefined ? item.price : "N/A"}<br/>
+                Location: {item.location !== undefined ? item.location : "N/A"}<br/>
+                Date: {item.date !== undefined ? item.date : "N/A"}<br/>
+                {item.site}<br/>{" "}<br/>
+                <button>Salvesta kuulutus</button>
+              </div>
+            </Box>
+          </div>
+          </Box>
+        ))}
+      </ul>
+    </div>
+        </li>
       </ul>
       
       

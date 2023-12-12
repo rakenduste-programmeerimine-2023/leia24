@@ -5,6 +5,12 @@
     "build": "next build",
     "start": "next start"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "child_process": false
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -19,11 +25,12 @@
     "geist": "^1.0.0",
     "jsdom": "^22.1.0",
     "net": "^1.0.2",
-    "next": "^14.0.2",
+    "next": "^14.0.3",
     "node-fetch": "^3.3.2",
     "postcss": "8.4.29",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
     "tailwindcss": "3.3.3",
     "tls": "^0.0.1",
     "typescript": "5.1.3"
