@@ -1,3 +1,4 @@
+
 import DeployButton from '../components/DeployButton'
 import AuthButton from '../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
@@ -10,10 +11,8 @@ import AddNumbers from '@/components/AddNumbers'
 import GetClassified from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromOkidoki from '@/components/GetClassifiedsFromOkidoki'
 import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
-
 import Link from 'next/link'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
-
 
 export default async function Index() {
 
@@ -32,14 +31,8 @@ export default async function Index() {
         <li><Link href="/listings">Kuulutustele</Link></li>
         <li><Link href="/listings">Kuulutustele</Link></li>
         <li><Link href="/listings">Kuulutustele</Link></li>
+        <AuthButton />
       </ul>
-
-
-      
     </div>
   )
 }
-
-
-//  <GetClassifiedsFromOkidoki></GetClassifiedsFromOkidoki>
-//  <a href='/listings'>Kuulutused hrefiga</a>
