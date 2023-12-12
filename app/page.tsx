@@ -16,17 +16,19 @@ import GetClassifiedsFromSoov from '@/components/GetClassifiedsFromSoov'
 import Link from 'next/link'
 import ResponsiveAppBar from '@/components/ResponsiveAppBar'
 import SearchContainer from '@/components/SearchContainer'
+import "@/styles/homepage.css"
+import SearchBar from "@/components/SearchBar"
+import PrimarySearchAppBar from "@/components/PrimarySearchAppBar"
 
 export default async function Index() {
 
   return (
 
     <div>
-      <ResponsiveAppBar/>
-      
+      <PrimarySearchAppBar/>
+      <h2>Tere tulemast!</h2>
+      <h1>Leia24</h1><br/>
 
-      
-      <h1>Siin on avaleht</h1><br/>
       <ul>
         <li><Link href="/listings">Kuulutustele</Link></li>
       </ul>

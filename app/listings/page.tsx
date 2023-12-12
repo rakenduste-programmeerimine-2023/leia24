@@ -24,7 +24,7 @@ import React, { useEffect, useState } from 'react'
 import { Typography } from '@mui/material'
 
 import {} from "path";
-import "@/components/banner.css";
+import "@/styles/banner.css";
 import Box from "@mui/material/Box";
 
 export default function Index() {
