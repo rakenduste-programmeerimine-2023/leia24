@@ -1,3 +1,4 @@
+"use client"
 import { createClient } from '@/utils/supabase/server'
 import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
 import SignUpUserSteps from '@/components/SignUpUserSteps'
@@ -19,7 +20,7 @@ import TestSearch from '@/components/TestSearch'
 import BasicPagination from '@/components/BasicPagination'
 import Pagination from '@/components/Pagination'
 import UrlParam from '@/components/UrlParam'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Typography } from '@mui/material'
 
 export default function Index() {
@@ -34,6 +35,17 @@ export default function Index() {
   });
 
 */
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const result = await GetClassifiedsBySearch();
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       <UrlParam/>
@@ -50,7 +62,26 @@ export default function Index() {
       </ul>
       <ul>
         <li>
-          <GetClassifiedsBySearch/>
+        <div>
+      <ul>
+        {data.map((item, index) => (
+          <div key={index} title={item.title}>
+            <div>
+              <img src={item.imageUrl} alt={item.title} />
+            </div>
+            <Typography textAlign="center">
+              <a href={item.href}>{item.title}</a>
+              <div>
+                Price: {item.price !== undefined ? item.price : "N/A"},
+                Location: {item.location !== undefined ? item.location : "N/A"},
+                Date: {item.date !== undefined ? item.date : "N/A"},{item.site},{" "}
+                <button>Salvesta kuulutus</button>
+              </div>
+            </Typography>
+          </div>
+        ))}
+      </ul>
+    </div>
         </li>
       </ul>
       
