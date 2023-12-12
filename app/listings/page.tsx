@@ -85,10 +85,10 @@ export default function Index() {
                 <a href={item.href}>{item.title}</a>
               </Box>
               <div>
-                Price: {item.price !== undefined ? item.price : "N/A"}<br/>
-                Location: {item.location !== undefined ? item.location : "N/A"}<br/>
-                Date: {item.date !== undefined ? item.date : "N/A"}<br/>
-                {item.site}<br/>{" "}<br/>
+                Hind: {item.price !== undefined ? item.price : "N/A"}<br/>
+                Asukoht: {item.location !== undefined ? item.location : "N/A"}<br/>
+                Kuupäev: {item.date !== undefined ? item.date : "N/A"}<br/>
+                Sait: {item.site}<br/>{" "}<br/>
                 <button>Salvesta kuulutus</button>
               </div>
             </div>
