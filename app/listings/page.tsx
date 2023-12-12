@@ -28,6 +28,7 @@ import "@/styles/banner.css";
 import Box from "@mui/material/Box";
 import "@/styles/global.css"
 import "@/styles/theme.css"
+import "@/styles/homepage.css"
 import PrimarySearchAppBar from '@/components/PrimarySearchAppBar'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -73,7 +74,7 @@ export default function Index() {
       <ul>
         <li>
         <div>
-      <ul>
+      
         {data.map((item, index) => (
           <Box className="banner-box" >
           <div key={index} title={item.title}>
@@ -98,7 +99,6 @@ export default function Index() {
         <div className="center">
           <BasicPagination/>
         </div>
-      </ul>
     </div>
         </li>
       </ul>
