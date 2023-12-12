@@ -30,13 +30,16 @@ export default  function Index() {
 
     <BrowserRouter>
     <div>
+
       <PrimarySearchAppBar/>
 
       <h2>Tere tulemast!</h2>
       <h1>Leia24</h1><br/>
 
+
       <ul>
         <li><Link href="/listings">Kuulutustele</Link></li>
+        <AuthButton />
       </ul>
     </div>
   </BrowserRouter>
