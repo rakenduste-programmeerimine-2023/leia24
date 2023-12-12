@@ -48,7 +48,7 @@ export default function Index() {
 
   return (
     <div>
-      <UrlParam/>
+      
       <ResponsiveAppBar/>
       <BasicPagination/>
       <Pagination/>

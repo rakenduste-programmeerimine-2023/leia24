@@ -1,7 +1,7 @@
 // Search.js
 import React from "react";
 import UrlParam from "./UrlParam";
-const Search = "xbox 360";
+const Search = "bmw 530d";
 /*
 const Search = () => {
   const searchValue = UrlParam();

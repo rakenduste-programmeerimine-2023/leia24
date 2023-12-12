@@ -12,16 +12,24 @@ const GetClassifiedsBySearch = async () => {
 
   let combinedData = okidokiData.concat(soovData);
 
+  // Remove spaces from prices
+  combinedData.forEach((item) => {
+    if (item.price) {
+      item.price = item.price.replace(/\s/g, "");
+    }
+  });
+
   combinedData.sort(function (a, b) {
     const priceA = parseFloat(a.price) || 0;
     const priceB = parseFloat(b.price) || 0;
     return priceA - priceB;
   });
 
+  /*
   let fromAd = 0;
   let toAd = 25;
   combinedData = combinedData.slice(fromAd, toAd);
-
+  */
   // console.log(combinedData);
   return combinedData;
 };
