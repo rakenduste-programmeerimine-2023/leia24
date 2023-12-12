@@ -1,4 +1,3 @@
-
 import { createClient } from '@/utils/supabase/server'
 import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
 import SignUpUserSteps from '@/components/SignUpUserSteps'
@@ -20,12 +19,22 @@ import TestSearch from '@/components/TestSearch'
 import BasicPagination from '@/components/BasicPagination'
 import Pagination from '@/components/Pagination'
 import UrlParam from '@/components/UrlParam'
+import { useEffect, useState } from 'react'
+import { Typography } from '@mui/material'
 
-export default async function Index() {
+export default function Index() {
+  // let combinedData = [1,2,3]
+  /*
+  const[combinedData, setCombinedData] = useState<Array<Array>([])
 
 
+  useEffect(() => {
+    const combinedData = GetClassifiedsBySearch()
+    return combinedData
+  });
+
+*/
   return (
-    
     <div>
       <UrlParam/>
       <ResponsiveAppBar/>
@@ -40,7 +49,9 @@ export default async function Index() {
        <li><Link href="..">Avalehele</Link></li>
       </ul>
       <ul>
-       <li><GetClassifiedsBySearch/></li>
+        <li>
+          <GetClassifiedsBySearch/>
+        </li>
       </ul>
       
       

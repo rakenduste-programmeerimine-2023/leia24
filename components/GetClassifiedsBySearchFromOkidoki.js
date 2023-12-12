@@ -1,3 +1,4 @@
+"use server";
 import { JSDOM } from "jsdom";
 
 import * as React from "react";
