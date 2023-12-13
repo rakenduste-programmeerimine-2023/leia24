@@ -31,6 +31,7 @@ import "@/styles/theme.css"
 import "@/styles/homepage.css"
 import PrimarySearchAppBar from '@/components/PrimarySearchAppBar'
 import { BrowserRouter } from 'react-router-dom'
+import Search from '@/components/Search'
 
 export default function Index() {
   // let combinedData = [1,2,3]
@@ -44,6 +45,7 @@ export default function Index() {
   });
 
 */
+  const search = Search
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
@@ -65,7 +67,7 @@ export default function Index() {
         <button type="submit">Submit</button>
       </form>
       <UrlParam/>
-      <h2>Kuulutused</h2><br/>
+      <h2>Kuulutused otsinguga: "{search}"</h2><br/>
       <div className="center">
           <BasicPagination/>
         </div>

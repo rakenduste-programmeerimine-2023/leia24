@@ -40,7 +40,7 @@ export default  function Index() {
 
       <ul>
         <li><Link href="/listings">Kuulutustele</Link></li>
-        
+
       </ul>
     </div>
   </BrowserRouter>
