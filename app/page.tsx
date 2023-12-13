@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React from 'react'
 
 import DeployButton from '../components/DeployButton'
@@ -35,10 +35,12 @@ export default  function Index() {
 
       <h2>Tere tulemast!</h2>
       <h1>Leia24</h1><br/>
+      
 
 
       <ul>
         <li><Link href="/listings">Kuulutustele</Link></li>
+
       </ul>
     </div>
   </BrowserRouter>
