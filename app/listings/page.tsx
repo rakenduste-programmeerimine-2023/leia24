@@ -67,7 +67,7 @@ export default function Index() {
         <button type="submit">Submit</button>
       </form>
       <UrlParam/>
-      <h2>Kuulutused kategoorias: "{search}"</h2><br/>
+      <h2>Kuulutused otsinguga: "{search}"</h2><br/>
       <div className="center">
           <BasicPagination/>
         </div>
