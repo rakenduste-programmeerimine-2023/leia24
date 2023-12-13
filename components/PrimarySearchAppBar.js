@@ -102,7 +102,9 @@ export default function PrimarySearchAppBar() {
       <MenuItem component={Link} onClick={isMenuOpen} to="/login">
         Login
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem component={Link} onClick={isMenuOpen} to="/account">
+        My account
+      </MenuItem>
     </Menu>
   );
 
@@ -171,17 +173,17 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+          <MenuItem
             component={Link}
-            onClick={isMenuOpen}
             to="/"
             variant="h6"
             noWrap
             sx={{ display: { xs: "none", sm: "block" } }}
-            color={"white"}
+            color="white"
           >
             Leia24
-          </Typography>
+          </MenuItem>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -191,17 +193,9 @@ export default function PrimarySearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Typography
-            component={Link}
-            onClick={isMenuOpen}
-            to="/listings"
-            variant="h6"
-            noWrap
-            sx={{ display: { xs: "none", sm: "block" } }}
-            color={"white"}
-          >
+          <MenuItem component={Link} to="/listings">
             Kuulutused
-          </Typography>
+          </MenuItem>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
